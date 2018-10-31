@@ -30,7 +30,7 @@ public class EventAction : MonoBehaviour {
 
 	public void Act()
 	{
-		if(gameObject.name == "Room 1 Door")
+		if(gameObject.name == "Room 1 Door" || gameObject.name == "Room 2 Door")
 		{
 			move = true;
 		}
