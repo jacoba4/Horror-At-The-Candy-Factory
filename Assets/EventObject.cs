@@ -7,7 +7,7 @@ public class EventObject : MonoBehaviour{
 
     void Start()
     {
-
+        eventAction = GetComponent<EventAction>();
     }
 
     void Update()

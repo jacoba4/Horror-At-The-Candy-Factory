@@ -8,12 +8,15 @@ public class Collectible : MonoBehaviour{
 
     void Start()
     {
-
+        eventManager = GameObject.FindGameObjectsWithTag("Event Manager")[0];
     }
 
     void Update()
     {
-        
+        if(Input.anyKeyDown)
+        {
+            TEST();
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -24,6 +27,13 @@ public class Collectible : MonoBehaviour{
             eventManager.GetComponent<EventManager>().RemoveCollectible(gameObject);
             Destroy(gameObject);
         }
+    }
+
+    void TEST()
+    {
+        eventObject.GetComponent<EventObject>().Triggered();
+        eventManager.GetComponent<EventManager>().RemoveCollectible(gameObject);
+        Destroy(gameObject);
     }
 
     
