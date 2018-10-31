@@ -13,10 +13,11 @@ public class Collectible : MonoBehaviour{
 
     void Update()
     {
+        /* 
         if(Input.anyKeyDown)
         {
             TEST();
-        }
+        }*/
     }
 
     void OnCollisionEnter(Collision collision)
