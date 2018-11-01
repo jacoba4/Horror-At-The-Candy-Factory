@@ -22,15 +22,16 @@ public class Collectible : MonoBehaviour{
 
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.GetComponent<PlayerController>() != null)
         {
+            Debug.Log("COLLIDED WITH PLAYER");
             eventObject.GetComponent<EventObject>().Triggered();
             eventManager.GetComponent<EventManager>().RemoveCollectible(gameObject);
             Destroy(gameObject);
         }
     }
 
-    void TEST()
+    void Collided()
     {
         eventObject.GetComponent<EventObject>().Triggered();
         eventManager.GetComponent<EventManager>().RemoveCollectible(gameObject);

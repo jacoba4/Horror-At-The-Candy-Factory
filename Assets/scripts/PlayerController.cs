@@ -38,4 +38,12 @@ public class PlayerController : MonoBehaviour {
         moveDir.y = moveDir.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
         controller.Move(moveDir * Time.deltaTime);
     }
+
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(hit.transform.tag == "Collectible")
+        {
+            hit.transform.SendMessage("Collided");
+        }
+    }
 }
