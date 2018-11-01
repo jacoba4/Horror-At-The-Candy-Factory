@@ -9,6 +9,8 @@ public class CameraController : MonoBehaviour {
     public bool useOffset;
     public float cameraRotateSpeed;
     public Transform pivot;
+    public float maxViewAngle;
+    public float minViewAngle;
 
     private Quaternion rotation;
     private Vector3 startPos;
@@ -41,6 +43,17 @@ public class CameraController : MonoBehaviour {
         float vertical = Input.GetAxis("Mouse Y") * cameraRotateSpeed;
         pivot.Rotate(-vertical, 0, 0);
 
+        if(pivot.rotation.eulerAngles.x > maxViewAngle && pivot.rotation.eulerAngles.x < 180f)
+        {
+            pivot.rotation = Quaternion.Euler(maxViewAngle, 0, 0);
+        }
+
+        if(pivot.rotation.eulerAngles.x > 180f && pivot.rotation.eulerAngles.x < 360f + minViewAngle)
+        {
+            pivot.rotation = Quaternion.Euler(360f + minViewAngle, 0, 0);
+        }
+
+        //only move camera when right clicking
         if (Input.GetMouseButton(1))
         {
             //moves the camera based on current rotation of target
@@ -51,13 +64,12 @@ public class CameraController : MonoBehaviour {
 
         transform.position = target.position - (rotation * offset);
 
+        //stops camera from going through floor
         if (transform.position.y < target.position.y)
         {
             transform.position = new Vector3(transform.position.x, target.position.y, transform.position.z);
         }
 
-
-        //transform.position = target.position - offset;
         transform.LookAt(target);
     }
 }

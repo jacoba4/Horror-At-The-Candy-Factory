@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour {
 
         //sets the players foward movement to the direction the camera is facing
         float yStore = moveDir.y;
-        moveDir = (transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal"));
+        moveDir = (transform.forward * Input.GetAxisRaw("Vertical")) + (transform.right * Input.GetAxisRaw("Horizontal"));
         moveDir = moveDir.normalized * moveSpeed;
         moveDir.y = yStore;
 
