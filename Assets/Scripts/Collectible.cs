@@ -6,6 +6,8 @@ public class Collectible : MonoBehaviour{
     public GameObject eventObject;
     public GameObject eventManager;
 
+    public float rotatespeed = 5;
+
     void Start()
     {
         eventManager = GameObject.FindGameObjectsWithTag("Event Manager")[0];
@@ -13,27 +15,13 @@ public class Collectible : MonoBehaviour{
 
     void Update()
     {
-        /* 
-        if(Input.anyKeyDown)
-        {
-            TEST();
-        }*/
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.GetComponent<PlayerController>() != null)
-        {
-            Debug.Log("COLLIDED WITH PLAYER");
-            eventObject.GetComponent<EventObject>().Triggered();
-            eventManager.GetComponent<EventManager>().RemoveCollectible(gameObject);
-            Destroy(gameObject);
-        }
+        transform.Rotate(rotatespeed,0f,0f);
+        transform.position = new Vector3(transform.position.x, transform.position.y + Mathf.Sin(Time.time)/100, transform.position.z);
     }
 
     void Collided()
     {
-        eventObject.GetComponent<EventObject>().Triggered();
+        eventObject.transform.SendMessage("Act");
         eventManager.GetComponent<EventManager>().RemoveCollectible(gameObject);
         Destroy(gameObject);
     }

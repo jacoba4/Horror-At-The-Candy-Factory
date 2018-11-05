@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventAction : MonoBehaviour {
+public class Room1Door : MonoBehaviour {
 
 	// Use this for initialization
 	bool move = false;
 	float t;
-	public float speed;
+	float speed = 0.5f;
 	void Start () {
 		t = 0.0f;
 		
@@ -18,7 +18,7 @@ public class EventAction : MonoBehaviour {
 		if(move)
 		{
 			
-			transform.position = new Vector3(0, (Mathf.Lerp(5,15, t)), -15);
+			transform.position = new Vector3(transform.position.x, (Mathf.Lerp(5,15, t)), transform.position.z);
 			t += speed * Time.deltaTime;
 
 			if(t > 1.0f)
@@ -30,11 +30,6 @@ public class EventAction : MonoBehaviour {
 
 	public void Act()
 	{
-		if(gameObject.name == "Room 1 Door" || gameObject.name == "Room 2 Door")
-		{
-			move = true;
-		}
-
-		
+			move = true;		
 	}
 }

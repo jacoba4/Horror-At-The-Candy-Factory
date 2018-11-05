@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EventObject : MonoBehaviour{
-    public EventAction eventAction;
+    //public EventAction eventAction;
 
     void Start()
     {
-        eventAction = GetComponent<EventAction>();
+        //eventAction = GetComponent<EventAction>();
     }
 
     void Update()
@@ -17,6 +17,6 @@ public class EventObject : MonoBehaviour{
 
     public void Triggered()
     {
-        eventAction.Act();
+        //eventAction.Act();
     }
 }
