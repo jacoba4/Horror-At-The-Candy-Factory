@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     public CharacterController controller;
     private Vector3 moveDir;
     public float gravityScale;
+    public Vector3 conveyorVec = Vector3.zero;
 
     // Use this for initialization
     void Start()
@@ -36,14 +37,24 @@ public class PlayerController : MonoBehaviour {
         }
 
         moveDir.y = moveDir.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
+        moveDir = moveDir + (3.0f * conveyorVec);
         controller.Move(moveDir * Time.deltaTime);
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.transform.tag == "Collectible")
+        conveyorVec = Vector3.zero;
+        if (hit.transform.tag == "Collectible")
         {
             hit.transform.SendMessage("Collided");
+        }
+
+        if (hit.transform.tag == "Conveyer")
+        {
+            Vector3 dir = Vector3.right;
+            dir = Quaternion.Euler(0, hit.transform.eulerAngles.y, 0) * dir;
+            dir.Normalize();
+            conveyorVec = dir;
         }
     }
 }

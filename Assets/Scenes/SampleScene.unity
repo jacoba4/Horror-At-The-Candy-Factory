@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427147, b: 0.56452364, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -823,6 +823,17 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 41a1e7b52669a564f957e451b431f3e9, type: 3}
+--- !u!114 &217928049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 217928046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c234bacd3efb49a0bdd8085324927ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &269873715
 Prefab:
   m_ObjectHideFlags: 0
@@ -1818,6 +1829,7 @@ MonoBehaviour:
   jumpForce: 20
   controller: {fileID: 676687651}
   gravityScale: 5
+  conveyorVec: {x: 0, y: 0, z: 0}
 --- !u!143 &676687651
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4989,7 +5001,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 41a1e7b52669a564f957e451b431f3e9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.65083736
+      value: -0.64295954
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 41a1e7b52669a564f957e451b431f3e9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4997,7 +5009,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 41a1e7b52669a564f957e451b431f3e9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.378773
+      value: 5.350408
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 41a1e7b52669a564f957e451b431f3e9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -5005,11 +5017,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 41a1e7b52669a564f957e451b431f3e9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 41a1e7b52669a564f957e451b431f3e9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 41a1e7b52669a564f957e451b431f3e9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5023,6 +5035,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 159c585dfd19f40ecbe29fca5c441ee5, type: 2}
+    - target: {fileID: 100000, guid: 41a1e7b52669a564f957e451b431f3e9, type: 3}
+      propertyPath: m_TagString
+      value: Conveyer
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 41a1e7b52669a564f957e451b431f3e9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41a1e7b52669a564f957e451b431f3e9, type: 3}
   m_IsPrefabAsset: 0
