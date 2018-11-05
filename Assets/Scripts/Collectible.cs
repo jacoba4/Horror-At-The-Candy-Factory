@@ -6,7 +6,7 @@ public class Collectible : MonoBehaviour{
     public GameObject eventObject;
     public GameObject eventManager;
 
-    public float rotatespeed = 5;
+    float rotatespeed = 1.5f;
 
     void Start()
     {
