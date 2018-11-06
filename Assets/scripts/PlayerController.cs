@@ -11,10 +11,15 @@ public class PlayerController : MonoBehaviour {
     public float gravityScale;
     public Vector3 conveyorVec = Vector3.zero;
 
+    private Vector3 startPos;
+    private Vector3 currCheckpoint;
+
     // Use this for initialization
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        startPos = transform.position;
+        currCheckpoint = transform.position;
     }
 
     // Update is called once per frame
@@ -55,6 +60,11 @@ public class PlayerController : MonoBehaviour {
             dir = Quaternion.Euler(0, hit.transform.eulerAngles.y, 0) * dir;
             dir.Normalize();
             conveyorVec = dir;
+        }
+        if(hit.transform.tag == "Checkpoint")
+        {
+            currCheckpoint = hit.transform.position;
+            Destroy(hit.gameObject);
         }
     }
 }
