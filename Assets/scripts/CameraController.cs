@@ -69,8 +69,6 @@ public class CameraController : MonoBehaviour {
             if(wallHit.collider.tag != "Collectible")
             {
                 transform.position = new Vector3(wallHit.point.x, wallHit.point.y, wallHit.point.z);
-                Debug.Log("Y: " + wallHit.point.y);
-                Debug.Log(wallHit.collider.tag);
             }
         }
 

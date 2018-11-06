@@ -9,34 +9,34 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1587315713911432}
+  m_RootGameObject: {fileID: 1532429056276568}
   m_IsPrefabAsset: 1
---- !u!1 &1065920306673018
+--- !u!1 &1066512209304402
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4969059490487166}
-  - component: {fileID: 33657848215770238}
-  - component: {fileID: 23913191688985298}
+  - component: {fileID: 4912077808708580}
+  - component: {fileID: 33704981509791942}
+  - component: {fileID: 23786301213318022}
   m_Layer: 0
-  m_Name: pCube1
+  m_Name: initialShadingGroup_pCube1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1587315713911432
+--- !u!1 &1532429056276568
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4796239250569700}
-  - component: {fileID: 64089626622714322}
+  - component: {fileID: 4738740723904644}
+  - component: {fileID: 64712841810730046}
   m_Layer: 0
   m_Name: floor
   m_TagString: Untagged
@@ -44,39 +44,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4796239250569700
+--- !u!4 &4738740723904644
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1587315713911432}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -12.47261, y: 13.617089, z: -15.6554985}
+  m_GameObject: {fileID: 1532429056276568}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4969059490487166}
+  - {fileID: 4912077808708580}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!4 &4969059490487166
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4912077808708580
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1065920306673018}
+  m_GameObject: {fileID: 1066512209304402}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4796239250569700}
+  m_Father: {fileID: 4738740723904644}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23913191688985298
+--- !u!23 &23786301213318022
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1065920306673018}
+  m_GameObject: {fileID: 1066512209304402}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -106,19 +106,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33657848215770238
+--- !u!33 &33704981509791942
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1065920306673018}
-  m_Mesh: {fileID: 4300000, guid: e1669a767490c4a749979da7800c8102, type: 3}
---- !u!64 &64089626622714322
+  m_GameObject: {fileID: 1066512209304402}
+  m_Mesh: {fileID: 4300002, guid: 3cc0119d2287f4c5abe202386be5fb24, type: 3}
+--- !u!64 &64712841810730046
 MeshCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1587315713911432}
+  m_GameObject: {fileID: 1532429056276568}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -126,4 +126,4 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: e1669a767490c4a749979da7800c8102, type: 3}
+  m_Mesh: {fileID: 4300002, guid: 3cc0119d2287f4c5abe202386be5fb24, type: 3}
