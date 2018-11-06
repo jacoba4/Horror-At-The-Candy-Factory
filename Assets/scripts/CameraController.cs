@@ -14,6 +14,7 @@ public class CameraController : MonoBehaviour {
 
     private Quaternion rotation;
     private Vector3 startPos;
+    private Vector3 targetPosition;
 
     // Use this for initialization
     void Start()
@@ -29,12 +30,12 @@ public class CameraController : MonoBehaviour {
         //hides the cursor
         //Cursor.lockState = CursorLockMode.Locked;
         startPos = transform.position;
+
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-
         //gets X of mouse and roatates the target
         float horizontal = Input.GetAxis("Mouse X") * cameraRotateSpeed;
         target.Rotate(0, horizontal, 0);
@@ -53,21 +54,19 @@ public class CameraController : MonoBehaviour {
             pivot.rotation = Quaternion.Euler(360f + minViewAngle, 0, 0);
         }
 
-        //only move camera when right clicking
-        if (Input.GetMouseButton(1))
-        {
-            //moves the camera based on current rotation of target
-            float yAngle = target.eulerAngles.y;
-            float xAngle = pivot.eulerAngles.x;
-            rotation = Quaternion.Euler(xAngle, yAngle, 0);
-        }
+        //moves the camera based on current rotation of target
+        float yAngle = target.eulerAngles.y;
+        float xAngle = pivot.eulerAngles.x;
+        rotation = Quaternion.Euler(xAngle, yAngle, 0);
 
         transform.position = target.position - (rotation * offset);
 
-        //stops camera from going through floor
-        if (transform.position.y < target.position.y)
+        RaycastHit wallHit = new RaycastHit();
+        if (Physics.Linecast(target.position, transform.position, out wallHit))
         {
-            transform.position = new Vector3(transform.position.x, target.position.y, transform.position.z);
+            Debug.Log("colliding");
+            Debug.DrawLine(transform.position, target.position, Color.green);
+            transform.position = new Vector3(wallHit.point.x, transform.position.y, wallHit.point.z);
         }
 
         transform.LookAt(target);
