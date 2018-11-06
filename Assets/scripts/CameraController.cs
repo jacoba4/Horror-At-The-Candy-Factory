@@ -69,7 +69,6 @@ public class CameraController : MonoBehaviour {
             if(wallHit.collider.tag != "Player" && wallHit.collider.tag != "Collectible")
             {
                 transform.position = new Vector3(wallHit.point.x, transform.position.y, wallHit.point.z);
-                Debug.Log(wallHit.collider.tag);
             }
         }
 
