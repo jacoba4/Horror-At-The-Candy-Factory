@@ -11,14 +11,10 @@ public class PlayerController : MonoBehaviour {
     public float gravityScale;
     public Vector3 conveyorVec = Vector3.zero;
 
-    private Vector3 startPos;
-    private Vector3 currCheckpoint;
-
     // Use this for initialization
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        currCheckpoint = transform.position;
     }
 
     // Update is called once per frame
@@ -38,10 +34,6 @@ public class PlayerController : MonoBehaviour {
             {
                 moveDir.y = jumpForce;
             }
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            transform.position = currCheckpoint;
         }
 
         moveDir.y = moveDir.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
@@ -64,15 +56,5 @@ public class PlayerController : MonoBehaviour {
             dir.Normalize();
             conveyorVec = dir;
         }
-        if(hit.transform.tag == "Checkpoint")
-        {
-            updateCheckPoint(hit.transform.position);
-            Destroy(hit.gameObject);
-        }
-    }
-
-    void updateCheckPoint(Vector3 checkpointPos)
-    {
-        currCheckpoint = checkpointPos;
     }
 }

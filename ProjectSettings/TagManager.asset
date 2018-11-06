@@ -7,7 +7,6 @@ TagManager:
   - Collectible
   - Event Manager
   - Conveyer
-  - Wall
   layers:
   - Default
   - TransparentFX
