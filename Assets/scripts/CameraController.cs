@@ -66,9 +66,10 @@ public class CameraController : MonoBehaviour {
         if (Physics.Linecast(target.position, transform.position, out wallHit))
         {
             Debug.DrawLine(transform.position, target.position, Color.green);
-            if(wallHit.collider.tag != "Player" && wallHit.collider.tag != "Collectible")
+            if(wallHit.collider.tag != "Collectible")
             {
-                transform.position = new Vector3(wallHit.point.x, transform.position.y, wallHit.point.z);
+                transform.position = new Vector3(wallHit.point.x, wallHit.point.y, wallHit.point.z);
+                Debug.Log("Y: " + wallHit.point.y);
                 Debug.Log(wallHit.collider.tag);
             }
         }
