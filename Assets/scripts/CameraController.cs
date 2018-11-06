@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour {
     public Transform pivot;
     public float maxViewAngle;
     public float minViewAngle;
+    public LayerMask collectibleLayer;
 
     private Quaternion rotation;
     private Vector3 startPos;
@@ -64,9 +65,12 @@ public class CameraController : MonoBehaviour {
         RaycastHit wallHit = new RaycastHit();
         if (Physics.Linecast(target.position, transform.position, out wallHit))
         {
-            Debug.Log("colliding");
             Debug.DrawLine(transform.position, target.position, Color.green);
-            transform.position = new Vector3(wallHit.point.x, transform.position.y, wallHit.point.z);
+            if(wallHit.collider.tag != "Player" && wallHit.collider.tag != "Collectible")
+            {
+                transform.position = new Vector3(wallHit.point.x, transform.position.y, wallHit.point.z);
+                Debug.Log(wallHit.collider.tag);
+            }
         }
 
         transform.LookAt(target);
