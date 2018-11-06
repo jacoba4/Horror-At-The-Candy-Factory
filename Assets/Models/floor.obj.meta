@@ -5,13 +5,19 @@ ModelImporter:
   fileIDToRecycleName:
     100000: //RootNode
     100002: pCube1
+    100004: initialShadingGroup_pCube1
     400000: //RootNode
     400002: pCube1
+    400004: initialShadingGroup_pCube1
     2100000: initialShadingGroup
     2100002: pCube1Mat
+    2100004: initialShadingGroup_pCube1Mat
     2300000: pCube1
+    2300002: initialShadingGroup_pCube1
     3300000: pCube1
+    3300002: initialShadingGroup_pCube1
     4300000: pCube1
+    4300002: initialShadingGroup_pCube1
   externalObjects: {}
   materials:
     importMaterials: 1
