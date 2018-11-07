@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
 
     private bool canMove = false;
     private bool doneWithIntroText = false;
-    private bool startText = false;
+    private bool startText1 = false;
     private bool startText2 = false;
     private bool startText3 = false;
     private bool startText4 = false;
@@ -31,11 +31,11 @@ public class PlayerController : MonoBehaviour {
     private string[] introText = new string[6] {"Wait...", "Where am I!?!", "What am I!?!", "What is this ribbon on my head?",
         "What is going on in here?", "I got to get out of this room..." };
     private string[] textRoom2 = new string[2] { "Why is it that as soon as I manage to get out of one room,", "I enter another room." };
-    private string[] mainText2;
-    private string[] mainText3;
-    private string[] mainText4;
-    private string[] mainText5;
-    private string[] mainText6;
+    private string[] textRoom3 = new string[2] { "Something is definitely fishy here,", "I just want to go back to my 9-5 job." };
+    private string[] textRoom4 = new string[1] { "Well I'm too deep to return now, I must go on" };
+    private string[] textRoom5 = new string[1] { "Why is it so hot in here all of a sudden?" };
+    private string[] textRoom6;
+    private string[] textRoom7;
     private int currTextIndex = 0;
     private float inputtedTextDelay;
     public bool isWhipping = false;
@@ -108,8 +108,23 @@ public class PlayerController : MonoBehaviour {
         }
 
         if(hit.gameObject.layer == LayerMask.NameToLayer("Checkpoint")) {
-            if(hit.gameObject.tag == "textCP") {
-                startText = true;
+            if(hit.gameObject.tag == "Checkpoint1") {
+                startText1 = true;
+                canMove = false;
+            }
+            else if (hit.gameObject.tag == "Checkpoint2")
+            {
+                startText2 = true;
+                canMove = false;
+            }
+            else if (hit.gameObject.tag == "Checkpoint3")
+            {
+                startText3 = true;
+                canMove = false;
+            }
+            else if (hit.gameObject.tag == "Checkpoint4")
+            {
+                startText4 = true;
                 canMove = false;
             }
             currCheckpoint = hit.transform.position;
@@ -171,7 +186,7 @@ public class PlayerController : MonoBehaviour {
                 currTextIndex = 0;
             }
         }
-        if (textDelay < 0f && startText)
+        else if (textDelay < 0f && startText1)
         {
             if (currTextIndex < textRoom2.Length)
             {
@@ -181,9 +196,58 @@ public class PlayerController : MonoBehaviour {
             }
             else
             {
-                startText = false;
+                startText1 = false;
                 storyText.text = "";
                 canMove = true;
+                currTextIndex = 0;
+            }
+        }
+        else if (textDelay < 0f && startText2)
+        {
+            if (currTextIndex < textRoom3.Length)
+            {
+                storyText.text = textRoom3[currTextIndex];
+                currTextIndex++;
+                textDelay = inputtedTextDelay;
+            }
+            else
+            {
+                startText2 = false;
+                storyText.text = "";
+                canMove = true;
+                currTextIndex = 0;
+            }
+        }
+        else if (textDelay < 0f && startText3)
+        {
+            if (currTextIndex < textRoom4.Length)
+            {
+                storyText.text = textRoom4[currTextIndex];
+                currTextIndex++;
+                textDelay = inputtedTextDelay;
+            }
+            else
+            {
+                startText3 = false;
+                storyText.text = "";
+                canMove = true;
+                currTextIndex = 0;
+            }
+        }
+        else if (textDelay < 0f && startText4)
+        {
+            if (currTextIndex < textRoom5.Length)
+            {
+                storyText.text = textRoom5[currTextIndex];
+                currTextIndex++;
+                textDelay = inputtedTextDelay;
+            }
+            else
+            {
+                startText4 = false;
+                storyText.text = "";
+                canMove = true;
+                currTextIndex = 0;
             }
         }
     }
