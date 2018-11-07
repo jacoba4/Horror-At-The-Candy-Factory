@@ -27,10 +27,6 @@ public class CameraController : MonoBehaviour {
 
         pivot.transform.position = target.transform.position;
         pivot.transform.parent = target.transform;
-
-        //hides the cursor
-        //Cursor.lockState = CursorLockMode.Locked;
-        startPos = transform.position;
         SystemManager.lockMouse();
 
     }
@@ -46,11 +42,13 @@ public class CameraController : MonoBehaviour {
         float vertical = Input.GetAxis("Mouse Y") * cameraRotateSpeed;
         pivot.Rotate(-vertical, 0, 0);
 
+        //player can move camera above 60 degrees
         if(pivot.rotation.eulerAngles.x > maxViewAngle && pivot.rotation.eulerAngles.x < 180f)
         {
             pivot.rotation = Quaternion.Euler(maxViewAngle, 0, 0);
         }
 
+        //player can't move camera below -10 degrees
         if(pivot.rotation.eulerAngles.x > 180f && pivot.rotation.eulerAngles.x < 360f + minViewAngle)
         {
             pivot.rotation = Quaternion.Euler(360f + minViewAngle, 0, 0);
@@ -63,6 +61,7 @@ public class CameraController : MonoBehaviour {
 
         transform.position = target.position - (rotation * offset);
 
+        //checks if camera view is blocked by an object and if so adjusts the camera to not be blocked
         RaycastHit wallHit = new RaycastHit();
         if (Physics.Linecast(target.position, transform.position, out wallHit))
         {

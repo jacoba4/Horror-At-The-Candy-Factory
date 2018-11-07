@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour {
     {
         updateText();
         float yStore = moveDir.y;
+        //only move if bool is true (if text isn't currently displayed)
         if (canMove)
         {
             moveDir = (transform.forward * Input.GetAxisRaw("Vertical")) + (transform.right * Input.GetAxisRaw("Horizontal"));
@@ -70,9 +71,11 @@ public class PlayerController : MonoBehaviour {
         
         moveDir.y = yStore;
 
+        //if player is ony ground and canMove
         if (controller.isGrounded && canMove)
         {
             moveDir.y = 0f;
+            //if space bar, then jump
             if (Input.GetButtonDown("Jump"))
             {
                 moveDir.y = jumpForce;
@@ -83,13 +86,20 @@ public class PlayerController : MonoBehaviour {
 
         moveDir.y = moveDir.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
         moveDir = moveDir + (3.0f * conveyorVec);
+        //if can't Move, set player velocity to 0
         if (!canMove)
         {
             moveDir = new Vector3(0f, 0f, 0f);
+            //if left click when text is up, skip to next line
+            if (Input.GetMouseButtonDown(0))
+            {
+                textDelay = -1f;
+            }
         }
         controller.Move(moveDir * Time.deltaTime);
 
-        if (Input.GetMouseButtonDown(0))
+        //if left click and canMove --> whip
+        if (Input.GetMouseButtonDown(0) && canMove)
         {
             anim.Play("whip");
             audio_whip.Play(0);
@@ -110,6 +120,7 @@ public class PlayerController : MonoBehaviour {
             controller.Move(currCheckpoint - transform.position);
         }
 
+        //if player hits a checkpoint, set corresponding bool to true and canMove to false so proper text can be displayed
         if(hit.gameObject.layer == LayerMask.NameToLayer("Checkpoint")) {
             if(hit.gameObject.tag == "Checkpoint1") {
                 startText1 = true;
@@ -144,11 +155,13 @@ public class PlayerController : MonoBehaviour {
             Destroy(hit.gameObject);
 
         }
+        //if collided with a key
         if (hit.transform.tag == "Collectible")
         {
             hit.transform.SendMessage("Collided");
         }
 
+        //if player is on a conveyor belt, change velocity/ velocity direction
         if (hit.transform.tag == "Conveyer")
         {
             Vector3 dir = Vector3.right;
@@ -182,6 +195,7 @@ public class PlayerController : MonoBehaviour {
 
     void updateText()
     {
+        //display the proper text from an array of text based on what checkpoint was reached
         textDelay -= Time.deltaTime;
         if (textDelay < 0f && !doneWithIntroText)
         {

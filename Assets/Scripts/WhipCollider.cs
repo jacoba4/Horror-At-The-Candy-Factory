@@ -21,6 +21,12 @@ public class WhipCollider : MonoBehaviour {
     {
         if (pc.isWhipping && other.gameObject.tag == "Bottle")
         {
+            //Debug.Log(other.gameObject.GetComponent<AudioSource>().clip.name);
+            AudioSource s = other.gameObject.GetComponent<AudioSource>();
+            //AudioSource l = new AudioSource();
+            //Debug.Log(l);
+            //l.clip = s.clip;
+            s.Play();
             Destroy(other.gameObject);
         }
     }
