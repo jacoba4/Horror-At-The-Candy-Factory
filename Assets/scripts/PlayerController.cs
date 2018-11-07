@@ -86,10 +86,14 @@ public class PlayerController : MonoBehaviour {
         if (!canMove)
         {
             moveDir = new Vector3(0f, 0f, 0f);
+            if (Input.GetMouseButtonDown(0))
+            {
+                textDelay = -1f;
+            }
         }
         controller.Move(moveDir * Time.deltaTime);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canMove)
         {
             anim.Play("whip");
             audio_whip.Play(0);
