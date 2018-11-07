@@ -16,8 +16,12 @@ public class PlayerController : MonoBehaviour {
 
     private bool canMove = false;
     private bool doneWithIntroText = false;
+    private bool startText = false;
     private bool startText2 = false;
     private bool startText3 = false;
+    private bool startText4 = false;
+    private bool startText5 = false;
+    private bool startText6 = false;
     private Vector3 startPos;
     private Vector3 currCheckpoint;
     private Animator anim;
@@ -27,6 +31,11 @@ public class PlayerController : MonoBehaviour {
     private string[] introText = new string[6] {"Wait...", "Where am I!?!", "What am I!?!", "What is this ribbon on my head?",
         "What is going on in here?", "I got to get out of this room..." };
     private string[] textRoom2 = new string[2] { "Why is it that as soon as I manage to get out of one room,", "I enter another room." };
+    private string[] mainText2;
+    private string[] mainText3;
+    private string[] mainText4;
+    private string[] mainText5;
+    private string[] mainText6;
     private int currTextIndex = 0;
     private float inputtedTextDelay;
 
@@ -107,15 +116,49 @@ public class PlayerController : MonoBehaviour {
         {
             currCheckpoint = hit.transform.position;
             Destroy(hit.gameObject);
-            startText2 = true;
+            startText = true;
             canMove = false;
+        }
+        if (hit.transform.tag == "Checkpoint2")
+        {
+            currCheckpoint = hit.transform.position;
+            Destroy(hit.gameObject);
+            //startText2 = true;
+            //canMove = false;
+        }
+        if (hit.transform.tag == "Checkpoint3")
+        {
+            currCheckpoint = hit.transform.position;
+            Destroy(hit.gameObject);
+            //startText3 = true;
+            //canMove = false;
+        }
+        if (hit.transform.tag == "Checkpoint4")
+        {
+            currCheckpoint = hit.transform.position;
+            Destroy(hit.gameObject);
+            //startText4 = true;
+            //canMove = false;
+        }
+        if (hit.transform.tag == "Checkpoint5")
+        {
+            currCheckpoint = hit.transform.position;
+            Destroy(hit.gameObject);
+            //startText5 = true;
+            //canMove = false;
+        }
+        if (hit.transform.tag == "Checkpoint6")
+        {
+            currCheckpoint = hit.transform.position;
+            Destroy(hit.gameObject);
+            //startText6 = true;
+            //canMove = false;
         }
 
         if (controller.isGrounded)
         {
             if (!alreadyHit)
             {
-                Debug.Log("hit");
                 anim.Play("jumpDown");
             }
             alreadyHit = true;
@@ -152,7 +195,7 @@ public class PlayerController : MonoBehaviour {
                 currTextIndex = 0;
             }
         }
-        if (textDelay < 0f && startText2)
+        if (textDelay < 0f && startText)
         {
             if (currTextIndex < textRoom2.Length)
             {
@@ -162,7 +205,7 @@ public class PlayerController : MonoBehaviour {
             }
             else
             {
-                startText2 = false;
+                startText = false;
                 storyText.text = "";
                 canMove = true;
             }

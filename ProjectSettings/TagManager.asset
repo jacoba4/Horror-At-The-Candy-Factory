@@ -12,6 +12,14 @@ TagManager:
   - Hot Surface
   - Bottle
   - Checkpoint1
+  - Checkpoint2
+  - Checkpoint3
+  - Checkpoint4
+  - Checkpoint5
+  - Checkpoint6
+  - Checkpoint7
+  - Checkpoint8
+  - Checkpoint9
   layers:
   - Default
   - TransparentFX
