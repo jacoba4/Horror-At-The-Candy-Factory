@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
     private Vector3 currCheckpoint;
     private Animator anim;
     private bool alreadyHit = false;
+    private int whipHash = 1968340083;
 
     // Use this for initialization
     void Start()
@@ -43,7 +44,6 @@ public class PlayerController : MonoBehaviour {
                 moveDir.y = jumpForce;
                 anim.Play("jumpUp");
                 alreadyHit = false;
-                Debug.Log("set alradyHit");
             }
         }
 
@@ -82,7 +82,6 @@ public class PlayerController : MonoBehaviour {
         {
             if (!alreadyHit)
             {
-                Debug.Log("hit");
                 anim.Play("jumpDown");
             }
             alreadyHit = true;
@@ -90,6 +89,11 @@ public class PlayerController : MonoBehaviour {
         else
         {
             alreadyHit = false;
+        }
+
+        if (hit.transform.tag == "Bottle" && anim.GetCurrentAnimatorStateInfo(0).shortNameHash == whipHash)
+        {
+            Destroy(hit.gameObject);
         }
 
         
