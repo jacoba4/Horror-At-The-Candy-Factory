@@ -29,6 +29,7 @@ public class FingerSpawner : MonoBehaviour {
 
 	public void Act() {
 		isActive = true;
-		pairSpawner.Act();
+		if(pairSpawner != null)
+			pairSpawner.Act();
 	}
 }
