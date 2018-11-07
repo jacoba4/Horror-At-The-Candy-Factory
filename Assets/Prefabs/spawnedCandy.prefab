@@ -277,8 +277,7 @@ GameObject:
   - component: {fileID: 4746990379854586}
   - component: {fileID: 95088056329411854}
   - component: {fileID: 54710569056758316}
-  - component: {fileID: 143681946235414312}
-  - component: {fileID: 114993606858702982}
+  - component: {fileID: 114163454391838862}
   m_Layer: 0
   m_Name: spawnedCandy
   m_TagString: Player
@@ -570,7 +569,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114993606858702982
+--- !u!114 &114163454391838862
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -578,17 +577,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1922322565145714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 833564ad3a1e347488915c24dd545b3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 56f0e85e39aed0149b050be90a406366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  jumpForce: 20
-  controller: {fileID: 0}
-  gravityScale: 5
   conveyorVec: {x: 0, y: 0, z: 0}
-  storyText: {fileID: 0}
-  textDelay: 0
-  isWhipping: 0
 --- !u!137 &137608093821059416
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -651,20 +643,3 @@ SkinnedMeshRenderer:
     m_Center: {x: -1.2078204, y: -0.16350293, z: 0.034152716}
     m_Extent: {x: 1.5143974, y: 1.1174448, z: 1.0062044}
   m_DirtyAABB: 0
---- !u!143 &143681946235414312
-CharacterController:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1922322565145714}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 0.8
-  m_Radius: 1
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.02, z: 0}
