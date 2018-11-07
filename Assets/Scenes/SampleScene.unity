@@ -7828,6 +7828,11 @@ Prefab:
       propertyPath: m_TagString
       value: Checkpoint5
       objectReference: {fileID: 0}
+    - target: {fileID: 23776197991504092, guid: e70d77352e2ec47498b5d8168ac723ed,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5b482636c23f4ad2a5472e7f6adc55b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e70d77352e2ec47498b5d8168ac723ed, type: 2}
   m_IsPrefabAsset: 0
@@ -12437,6 +12442,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 23776197991504092, guid: e70d77352e2ec47498b5d8168ac723ed,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5b482636c23f4ad2a5472e7f6adc55b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e70d77352e2ec47498b5d8168ac723ed, type: 2}
   m_IsPrefabAsset: 0
