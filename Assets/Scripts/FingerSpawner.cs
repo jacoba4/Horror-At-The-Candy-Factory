@@ -7,6 +7,8 @@ public class FingerSpawner : MonoBehaviour {
 	int framecount = 0;
 	int framemax = 30;
 	public GameObject finger;
+	[SerializeField]
+	private AudioSource grindingSound;
 
 	[SerializeField]
 	private FingerSpawner pairSpawner;
@@ -29,6 +31,7 @@ public class FingerSpawner : MonoBehaviour {
 
 	public void Act() {
 		isActive = true;
+		grindingSound.Play();
 		if(pairSpawner != null)
 			pairSpawner.Act();
 	}
