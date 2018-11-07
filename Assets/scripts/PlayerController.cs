@@ -102,9 +102,7 @@ public class PlayerController : MonoBehaviour {
         conveyorVec = Vector3.zero;
 
         if(hit.gameObject.layer == LayerMask.NameToLayer("KillFloor")) {
-            Debug.Log("checkpoint: " +  currCheckpoint);
-            Debug.Log("current position: " + transform.position);
-            transform.position = currCheckpoint;
+            controller.Move(currCheckpoint - transform.position);
         }
 
         if(hit.gameObject.layer == LayerMask.NameToLayer("Checkpoint")) {
