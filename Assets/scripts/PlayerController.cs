@@ -199,6 +199,7 @@ public class PlayerController : MonoBehaviour {
         textDelay -= Time.deltaTime;
         if (textDelay < 0f && !doneWithIntroText)
         {
+            Debug.Log("Done with intro text: " + doneWithIntroText);
             if(currTextIndex < introText.Length)
             {
                 storyText.text = introText[currTextIndex];

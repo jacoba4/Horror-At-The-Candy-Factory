@@ -19,6 +19,7 @@ TagManager:
   - Checkpoint6
   - textCP
   - Machine
+  - Checkpoint7
   layers:
   - Default
   - TransparentFX
