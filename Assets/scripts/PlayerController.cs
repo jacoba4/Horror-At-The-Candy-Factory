@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour {
     private Vector3 currCheckpoint;
     private Animator anim;
     private bool alreadyHit = false;
-    private SystemManager manager;
     private int whipHash = 1968340083;
     private string[] introText = new string[6] {"Wait...", "Where am I!?!", "What am I!?!", "What is this ribbon on my head?",
         "What is going on in here?", "I got to get out of this room..." };
@@ -46,7 +45,6 @@ public class PlayerController : MonoBehaviour {
         startPos = transform.position;
         currCheckpoint = transform.position;
         anim = gameObject.GetComponent<Animator>();
-        manager = GetComponent<SystemManager>();
         inputtedTextDelay = textDelay;
         storyText.text = introText[currTextIndex];
         currTextIndex++;
@@ -98,7 +96,7 @@ public class PlayerController : MonoBehaviour {
 
         if(hit.gameObject.layer == LayerMask.NameToLayer("KillFloor")) {
             Debug.Log("oof you dead");
-            manager.LoadGivenScene("GameOver");
+            SystemManager.LoadGivenScene("GameOver");
         }
         if (hit.transform.tag == "Collectible")
         {
