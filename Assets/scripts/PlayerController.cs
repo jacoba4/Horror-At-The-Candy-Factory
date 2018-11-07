@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour {
     private bool startText3 = false;
     private Vector3 startPos;
     private Vector3 currCheckpoint;
+    private Animator anim;
+    private bool alreadyHit = false;
     private string[] introText = new string[6] {"Wait...", "Where am I!?!", "What am I!?!", "What is this ribbon on my head?",
         "What is going on in here?", "I got to get out of this room..." };
     private string[] textRoom2 = new string[2] { "Why is it that as soon as I manage to get out of one room,", "I enter another room." };
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour {
         controller = GetComponent<CharacterController>();
         startPos = transform.position;
         currCheckpoint = transform.position;
+        anim = gameObject.GetComponent<Animator>();
         inputtedTextDelay = textDelay;
         storyText.text = introText[currTextIndex];
         currTextIndex++;
@@ -56,6 +59,9 @@ public class PlayerController : MonoBehaviour {
             if (Input.GetButtonDown("Jump"))
             {
                 moveDir.y = jumpForce;
+                anim.Play("jumpUp");
+                alreadyHit = false;
+                Debug.Log("set alradyHit");
             }
         }
 
@@ -66,6 +72,11 @@ public class PlayerController : MonoBehaviour {
             moveDir = new Vector3(0f, 0f, 0f);
         }
         controller.Move(moveDir * Time.deltaTime);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            anim.Play("whip");
+        }
         //sets the players foward movement to the direction the camera is facing
         
     }
@@ -92,6 +103,22 @@ public class PlayerController : MonoBehaviour {
             startText2 = true;
             canMove = false;
         }
+
+        if (controller.isGrounded)
+        {
+            if (!alreadyHit)
+            {
+                Debug.Log("hit");
+                anim.Play("jumpDown");
+            }
+            alreadyHit = true;
+        }
+        else
+        {
+            alreadyHit = false;
+        }
+
+        
     }
 
     void updateText()
