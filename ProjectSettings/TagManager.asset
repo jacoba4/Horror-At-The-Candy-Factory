@@ -10,6 +10,7 @@ TagManager:
   - ceiling
   - walls
   - Hot Surface
+  - Checkpoint1
   layers:
   - Default
   - TransparentFX
