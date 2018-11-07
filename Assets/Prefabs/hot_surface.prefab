@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4934619272528668}
   - component: {fileID: 64084526026230642}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: hot_surface
   m_TagString: Hot Surface
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4528471030086358}
   - component: {fileID: 33019066680112444}
   - component: {fileID: 23313686371545290}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: initialShadingGroup_pCube1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

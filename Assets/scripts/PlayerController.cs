@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
     private Vector3 currCheckpoint;
     private Animator anim;
     private bool alreadyHit = false;
+    private SystemManager manager;
 
     // Use this for initialization
     void Start()
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour {
         startPos = transform.position;
         currCheckpoint = transform.position;
         anim = gameObject.GetComponent<Animator>();
+        manager = GetComponent<SystemManager>();
     }
 
     // Update is called once per frame
@@ -60,6 +62,11 @@ public class PlayerController : MonoBehaviour {
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         conveyorVec = Vector3.zero;
+
+        if(hit.gameObject.layer == LayerMask.NameToLayer("KillFloor")) {
+            Debug.Log("oof you dead");
+            manager.LoadGivenScene("GameOver");
+        }
         if (hit.transform.tag == "Collectible")
         {
             hit.transform.SendMessage("Collided");
