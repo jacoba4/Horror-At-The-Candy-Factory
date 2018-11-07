@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour {
     private int currTextIndex = 0;
     private float inputtedTextDelay;
     public bool isWhipping = false;
+    private AudioSource audio_whip;
 
     // Use this for initialization
     void Start()
@@ -52,7 +53,7 @@ public class PlayerController : MonoBehaviour {
         inputtedTextDelay = textDelay;
         storyText.text = introText[currTextIndex];
         currTextIndex++;
-
+        audio_whip = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -90,6 +91,7 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             anim.Play("whip");
+            audio_whip.Play(0);
         }
         //sets the players foward movement to the direction the camera is facing
         
