@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(transform.position);
         updateText();
         float yStore = moveDir.y;
         if (canMove)
@@ -97,8 +98,8 @@ public class PlayerController : MonoBehaviour {
         conveyorVec = Vector3.zero;
 
         if(hit.gameObject.layer == LayerMask.NameToLayer("KillFloor")) {
-            Debug.Log("oof you dead");
-            manager.LoadGivenScene("GameOver");
+            Debug.Log(currCheckpoint);
+            transform.position = new Vector3(currCheckpoint.x,currCheckpoint.y + 2,currCheckpoint.z);
         }
         if (hit.transform.tag == "Collectible")
         {
