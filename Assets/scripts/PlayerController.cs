@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         controller = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
         startPos = transform.position;
