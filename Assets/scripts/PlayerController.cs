@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour {
     private Vector3 currCheckpoint;
     private Animator anim;
     private bool alreadyHit = false;
+    private int whipHash = 1968340083;
     private string[] introText = new string[6] {"Wait...", "Where am I!?!", "What am I!?!", "What is this ribbon on my head?",
         "What is going on in here?", "I got to get out of this room..." };
     private string[] textRoom2 = new string[2] { "Why is it that as soon as I manage to get out of one room,", "I enter another room." };
@@ -61,7 +62,6 @@ public class PlayerController : MonoBehaviour {
                 moveDir.y = jumpForce;
                 anim.Play("jumpUp");
                 alreadyHit = false;
-                Debug.Log("set alradyHit");
             }
         }
 
@@ -108,7 +108,6 @@ public class PlayerController : MonoBehaviour {
         {
             if (!alreadyHit)
             {
-                Debug.Log("hit");
                 anim.Play("jumpDown");
             }
             alreadyHit = true;
@@ -116,6 +115,11 @@ public class PlayerController : MonoBehaviour {
         else
         {
             alreadyHit = false;
+        }
+
+        if (hit.transform.tag == "Bottle" && anim.GetCurrentAnimatorStateInfo(0).shortNameHash == whipHash)
+        {
+            Destroy(hit.gameObject);
         }
 
         
