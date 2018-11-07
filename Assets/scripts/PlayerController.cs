@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour {
     private string[] mainText6;
     private int currTextIndex = 0;
     private float inputtedTextDelay;
+    public bool isWhipping = false;
 
     // Use this for initialization
     void Start()
@@ -173,7 +174,10 @@ public class PlayerController : MonoBehaviour {
             Destroy(hit.gameObject);
         }
 
-        
+        isWhipping = anim.GetCurrentAnimatorStateInfo(0).shortNameHash == whipHash;
+
+
+
     }
 
     void updateText()
