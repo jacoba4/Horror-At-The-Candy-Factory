@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -620,7 +620,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -233, y: -103}
+  m_AnchoredPosition: {x: -233, y: -147}
   m_SizeDelta: {x: 320, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1873596440
@@ -659,7 +659,9 @@ MonoBehaviour:
 
     https://freesound.org/people/CGEffex/sounds/93100/
 
-    https://freesound.org/people/Xanco123/sounds/233311/'
+    https://freesound.org/people/Xanco123/sounds/233311/
+
+    https://freesound.org/people/OldSchool_/sounds/408768/'
 --- !u!222 &1873596441
 CanvasRenderer:
   m_ObjectHideFlags: 0
