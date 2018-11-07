@@ -94,6 +94,10 @@ public class PlayerController : MonoBehaviour {
             anim.Play("whip");
             audio_whip.Play(0);
         }
+
+        if(transform.position.y < -100) {
+            controller.Move(currCheckpoint - transform.position);
+        }
         //sets the players foward movement to the direction the camera is facing
         
     }
