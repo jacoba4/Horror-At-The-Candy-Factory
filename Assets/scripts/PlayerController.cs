@@ -117,7 +117,13 @@ public class PlayerController : MonoBehaviour {
         conveyorVec = Vector3.zero;
 
         if(hit.gameObject.layer == LayerMask.NameToLayer("KillFloor")) {
+            CharacterController controller = GetComponent<CharacterController>();
+            controller.detectCollisions = false;
+            canMove = false;
             controller.Move(currCheckpoint - transform.position);
+
+            canMove = true;
+            controller.detectCollisions = true;
         }
 
         //if player hits a checkpoint, set corresponding bool to true and canMove to false so proper text can be displayed
@@ -151,7 +157,10 @@ public class PlayerController : MonoBehaviour {
                 startText6 = true;
                 canMove = false;
             }
-            currCheckpoint = hit.transform.position;
+            Vector3 temp = hit.transform.position;
+            temp.y -= 2;
+            currCheckpoint = temp;
+
             Destroy(hit.gameObject);
 
         }
