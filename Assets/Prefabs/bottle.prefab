@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4290593787503572}
   - component: {fileID: 33200716974961260}
   - component: {fileID: 23013173355211472}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: pCylinder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4670969996540176}
   - component: {fileID: 64013450358990722}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: bottle
   m_TagString: Bottle
   m_Icon: {fileID: 0}
