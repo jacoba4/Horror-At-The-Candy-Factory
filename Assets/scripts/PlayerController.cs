@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour {
     private Vector3 startPos;
     private Vector3 currCheckpoint;
     private Animator anim;
+    private Rigidbody rb;
     private bool alreadyHit = false;
     private int whipHash = 1968340083;
     private string[] introText = new string[6] {"Wait...", "Where am I!?!", "What am I!?!", "What is this ribbon on my head?",
@@ -43,18 +44,19 @@ public class PlayerController : MonoBehaviour {
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
         startPos = transform.position;
         currCheckpoint = transform.position;
         anim = gameObject.GetComponent<Animator>();
         inputtedTextDelay = textDelay;
         storyText.text = introText[currTextIndex];
         currTextIndex++;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(transform.position);
         updateText();
         float yStore = moveDir.y;
         if (canMove)
@@ -97,8 +99,19 @@ public class PlayerController : MonoBehaviour {
         conveyorVec = Vector3.zero;
 
         if(hit.gameObject.layer == LayerMask.NameToLayer("KillFloor")) {
-            Debug.Log(currCheckpoint);
-            transform.position = new Vector3(currCheckpoint.x,currCheckpoint.y + 2,currCheckpoint.z);
+            Debug.Log("checkpoint: " +  currCheckpoint);
+            Debug.Log("current position: " + transform.position);
+            transform.position = currCheckpoint;
+        }
+
+        if(hit.gameObject.layer == LayerMask.NameToLayer("Checkpoint")) {
+            if(hit.gameObject.tag == "textCP") {
+                startText = true;
+                canMove = false;
+            }
+            currCheckpoint = hit.transform.position;
+            Destroy(hit.gameObject);
+
         }
         if (hit.transform.tag == "Collectible")
         {
@@ -112,49 +125,6 @@ public class PlayerController : MonoBehaviour {
             dir.Normalize();
             conveyorVec = dir;
         }
-        if(hit.transform.tag == "Checkpoint1")
-        {
-            currCheckpoint = hit.transform.position;
-            Destroy(hit.gameObject);
-            startText = true;
-            canMove = false;
-        }
-        if (hit.transform.tag == "Checkpoint2")
-        {
-            currCheckpoint = hit.transform.position;
-            Destroy(hit.gameObject);
-            //startText2 = true;
-            //canMove = false;
-        }
-        if (hit.transform.tag == "Checkpoint3")
-        {
-            currCheckpoint = hit.transform.position;
-            Destroy(hit.gameObject);
-            //startText3 = true;
-            //canMove = false;
-        }
-        if (hit.transform.tag == "Checkpoint4")
-        {
-            currCheckpoint = hit.transform.position;
-            Destroy(hit.gameObject);
-            //startText4 = true;
-            //canMove = false;
-        }
-        if (hit.transform.tag == "Checkpoint5")
-        {
-            currCheckpoint = hit.transform.position;
-            Destroy(hit.gameObject);
-            //startText5 = true;
-            //canMove = false;
-        }
-        if (hit.transform.tag == "Checkpoint6")
-        {
-            currCheckpoint = hit.transform.position;
-            Destroy(hit.gameObject);
-            //startText6 = true;
-            //canMove = false;
-        }
-
         if (controller.isGrounded)
         {
             if (!alreadyHit)

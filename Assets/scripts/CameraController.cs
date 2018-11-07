@@ -31,6 +31,7 @@ public class CameraController : MonoBehaviour {
         //hides the cursor
         //Cursor.lockState = CursorLockMode.Locked;
         startPos = transform.position;
+        SystemManager.lockMouse();
 
     }
 
