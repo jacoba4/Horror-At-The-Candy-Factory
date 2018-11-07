@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour {
 
     private Vector3 startPos;
     private Vector3 currCheckpoint;
+    private Animator anim;
+    private bool alreadyHit = false;
 
     // Use this for initialization
     void Start()
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour {
         controller = GetComponent<CharacterController>();
         startPos = transform.position;
         currCheckpoint = transform.position;
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -38,12 +41,20 @@ public class PlayerController : MonoBehaviour {
             if (Input.GetButtonDown("Jump"))
             {
                 moveDir.y = jumpForce;
+                anim.Play("jumpUp");
+                alreadyHit = false;
+                Debug.Log("set alradyHit");
             }
         }
 
         moveDir.y = moveDir.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
         moveDir = moveDir + (3.0f * conveyorVec);
         controller.Move(moveDir * Time.deltaTime);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            anim.Play("whip");
+        }
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
@@ -66,5 +77,21 @@ public class PlayerController : MonoBehaviour {
             currCheckpoint = hit.transform.position;
             Destroy(hit.gameObject);
         }
+
+        if (controller.isGrounded)
+        {
+            if (!alreadyHit)
+            {
+                Debug.Log("hit");
+                anim.Play("jumpDown");
+            }
+            alreadyHit = true;
+        }
+        else
+        {
+            alreadyHit = false;
+        }
+
+        
     }
 }
