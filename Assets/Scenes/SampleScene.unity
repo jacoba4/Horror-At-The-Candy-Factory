@@ -8020,6 +8020,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1584426554565852, guid: e70d77352e2ec47498b5d8168ac723ed, type: 2}
+      propertyPath: m_TagString
+      value: Checkpoint6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e70d77352e2ec47498b5d8168ac723ed, type: 2}
   m_IsPrefabAsset: 0

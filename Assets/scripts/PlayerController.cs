@@ -34,8 +34,9 @@ public class PlayerController : MonoBehaviour {
     private string[] textRoom3 = new string[2] { "Something is definitely fishy here,", "I just want to go back to my 9-5 job." };
     private string[] textRoom4 = new string[1] { "Well I'm too deep to return now, I must go on" };
     private string[] textRoom5 = new string[1] { "Why is it so hot in here all of a sudden?" };
-    private string[] textRoom6;
-    private string[] textRoom7;
+    private string[] textRoom6 = new string[2] { "What is it that I'm not supposed to see?", "This can't end well at all." };
+    private string[] textRoom7 = new string[1] { "Oh no, what is that grinding noise???" };
+
     private int currTextIndex = 0;
     private float inputtedTextDelay;
     public bool isWhipping = false;
@@ -123,6 +124,16 @@ public class PlayerController : MonoBehaviour {
             else if (hit.gameObject.tag == "Checkpoint4")
             {
                 startText4 = true;
+                canMove = false;
+            }
+            else if (hit.gameObject.tag == "Checkpoint5")
+            {
+                startText5 = true;
+                canMove = false;
+            }
+            else if (hit.gameObject.tag == "Checkpoint6")
+            {
+                startText6 = true;
                 canMove = false;
             }
             currCheckpoint = hit.transform.position;
@@ -243,6 +254,38 @@ public class PlayerController : MonoBehaviour {
             else
             {
                 startText4 = false;
+                storyText.text = "";
+                canMove = true;
+                currTextIndex = 0;
+            }
+        }
+        else if (textDelay < 0f && startText5)
+        {
+            if (currTextIndex < textRoom6.Length)
+            {
+                storyText.text = textRoom6[currTextIndex];
+                currTextIndex++;
+                textDelay = inputtedTextDelay;
+            }
+            else
+            {
+                startText5 = false;
+                storyText.text = "";
+                canMove = true;
+                currTextIndex = 0;
+            }
+        }
+        else if (textDelay < 0f && startText6)
+        {
+            if (currTextIndex < textRoom7.Length)
+            {
+                storyText.text = textRoom7[currTextIndex];
+                currTextIndex++;
+                textDelay = inputtedTextDelay;
+            }
+            else
+            {
+                startText6 = false;
                 storyText.text = "";
                 canMove = true;
                 currTextIndex = 0;
