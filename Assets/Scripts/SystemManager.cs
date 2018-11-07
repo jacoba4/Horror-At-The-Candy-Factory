@@ -8,7 +8,12 @@ public class SystemManager : MonoBehaviour {
 		SceneManager.LoadScene(levelName);
 	}
 
-	public static void lockMouse() {
+    public void LoadGivenScenePub(string levelName = "SampleScene")
+    {
+        SceneManager.LoadScene(levelName);
+    }
+
+    public static void lockMouse() {
 		Cursor.lockState = CursorLockMode.Locked;
 	}
 
