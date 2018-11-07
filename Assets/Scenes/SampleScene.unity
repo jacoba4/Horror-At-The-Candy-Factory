@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7182,6 +7182,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4239629504873264, guid: b539f7f486f11e246806ca015d4a092a,
     type: 2}
   m_PrefabInternal: {fileID: 1203955990}
+--- !u!4 &1204656900 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4871849770701396, guid: e70d77352e2ec47498b5d8168ac723ed,
+    type: 2}
+  m_PrefabInternal: {fileID: 2114786931}
 --- !u!4 &1206719726 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4239629504873264, guid: b539f7f486f11e246806ca015d4a092a,
@@ -10075,6 +10080,7 @@ Transform:
   - {fileID: 2073197858}
   - {fileID: 676819756}
   - {fileID: 526848318}
+  - {fileID: 1204656900}
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12447,6 +12453,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b5b482636c23f4ad2a5472e7f6adc55b, type: 2}
+    - target: {fileID: 1584426554565852, guid: e70d77352e2ec47498b5d8168ac723ed, type: 2}
+      propertyPath: m_TagString
+      value: Checkpoint7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e70d77352e2ec47498b5d8168ac723ed, type: 2}
   m_IsPrefabAsset: 0

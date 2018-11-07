@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour {
     private bool startText4 = false;
     private bool startText5 = false;
     private bool startText6 = false;
+    private bool startText7 = false;
     private Vector3 startPos;
     private Vector3 currCheckpoint;
     private Animator anim;
@@ -32,10 +33,12 @@ public class PlayerController : MonoBehaviour {
         "What is going on in here?", "I got to get out of this room..." };
     private string[] textRoom2 = new string[2] { "Why is it that as soon as I manage to get out of one room,", "I enter another room." };
     private string[] textRoom3 = new string[2] { "Something is definitely fishy here,", "I just want to go back to my 9-5 job." };
-    private string[] textRoom4 = new string[1] { "Well I'm too deep to return now, I must go on" };
+    private string[] textRoom4 = new string[1] { "Well I'm too deep to return now, I must go on." };
     private string[] textRoom5 = new string[1] { "Why is it so hot in here all of a sudden?" };
     private string[] textRoom6 = new string[2] { "What is it that I'm not supposed to see?", "This can't end well at all." };
-    private string[] textRoom7 = new string[1] { "Oh no, what is that grinding noise???" };
+    private string[] textRoom7 = new string[2] { "There are fingers everywhere!", "Each room makes me more and more uncomfortable." };
+    private string[] textRoom8 = new string[5] { "Wait, what's that grinding noise...", "No don't tell me...", "They're using humans to make candy!?!", "Wait, so that means...",
+    "I was turned from a human to a piece of candy..."};
 
     private int currTextIndex = 0;
     private float inputtedTextDelay;
@@ -149,6 +152,11 @@ public class PlayerController : MonoBehaviour {
             else if (hit.gameObject.tag == "Checkpoint6")
             {
                 startText6 = true;
+                canMove = false;
+            }
+            else if (hit.gameObject.tag == "Checkpoint7")
+            {
+                startText7 = true;
                 canMove = false;
             }
             currCheckpoint = hit.transform.position;
@@ -306,6 +314,22 @@ public class PlayerController : MonoBehaviour {
             else
             {
                 startText6 = false;
+                storyText.text = "";
+                canMove = true;
+                currTextIndex = 0;
+            }
+        }
+        else if (textDelay < 0f && startText7)
+        {
+            if (currTextIndex < textRoom8.Length)
+            {
+                storyText.text = textRoom8[currTextIndex];
+                currTextIndex++;
+                textDelay = inputtedTextDelay;
+            }
+            else
+            {
+                startText7 = false;
                 storyText.text = "";
                 canMove = true;
                 currTextIndex = 0;
