@@ -7,6 +7,8 @@ TagManager:
   - Collectible
   - Event Manager
   - Conveyer
+  - ceiling
+  - walls
   - Hot Surface
   layers:
   - Default
