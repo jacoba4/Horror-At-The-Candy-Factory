@@ -159,6 +159,7 @@ public class PlayerController : MonoBehaviour {
         if (hit.transform.tag == "Collectible")
         {
             hit.transform.SendMessage("Collided");
+            doneWithIntroText = true;
         }
 
         //if player is on a conveyor belt, change velocity/ velocity direction
