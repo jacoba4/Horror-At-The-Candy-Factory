@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour {
     private Vector3 startPos;
     private Vector3 currCheckpoint;
     private Animator anim;
-    private Rigidbody rb;
     private bool alreadyHit = false;
     private int whipHash = 1968340083;
     private string[] introText = new string[6] {"Wait...", "Where am I!?!", "What am I!?!", "What is this ribbon on my head?",
@@ -47,7 +46,6 @@ public class PlayerController : MonoBehaviour {
     {
         Cursor.lockState = CursorLockMode.Locked;
         controller = GetComponent<CharacterController>();
-        rb = GetComponent<Rigidbody>();
         startPos = transform.position;
         currCheckpoint = transform.position;
         anim = gameObject.GetComponent<Animator>();
@@ -185,6 +183,11 @@ public class PlayerController : MonoBehaviour {
         if (hit.transform.tag == "Bottle" && anim.GetCurrentAnimatorStateInfo(0).shortNameHash == whipHash)
         {
             Destroy(hit.gameObject);
+        }
+
+        if (hit.transform.tag == "Machine" && anim.GetCurrentAnimatorStateInfo(0).shortNameHash == whipHash)
+        {
+            SystemManager.LoadGivenScene("GameOver");
         }
 
         isWhipping = anim.GetCurrentAnimatorStateInfo(0).shortNameHash == whipHash;
