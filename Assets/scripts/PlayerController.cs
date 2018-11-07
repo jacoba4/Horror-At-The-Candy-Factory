@@ -36,8 +36,8 @@ public class PlayerController : MonoBehaviour {
     private string[] textRoom5 = new string[1] { "Why is it so hot in here all of a sudden?" };
     private string[] textRoom6 = new string[2] { "What is it that I'm not supposed to see?", "This can't end well at all." };
     private string[] textRoom7 = new string[2] { "There are fingers everywhere!", "Each room makes me more and more uncomfortable." };
-    private string[] textRoom8 = new string[5] { "Wait, what's that grinding noise...", "No don't tell me...", "They're using humans to make candy!?!", "Wait, so that means...",
-    "I was turned from a human to a piece of candy..."};
+    private string[] textRoom8 = new string[6] { "Wait, what's that grinding noise...", "No don't tell me...", "They're using humans to make candy!?!", "Wait, so that means...",
+    "I was turned from a human to a piece of candy...", "I must put a stop to this and destroy the machine!"};
 
     private int currTextIndex = 0;
     private float inputtedTextDelay;
@@ -206,7 +206,7 @@ public class PlayerController : MonoBehaviour {
 
         if (hit.transform.tag == "Machine" && anim.GetCurrentAnimatorStateInfo(0).shortNameHash == whipHash)
         {
-            SystemManager.LoadGivenScene("GameOver");
+            SystemManager.LoadGivenScene("EndScene");
         }
 
         isWhipping = anim.GetCurrentAnimatorStateInfo(0).shortNameHash == whipHash;

@@ -760,11 +760,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4236604060277552, guid: 9fd10f55e9501c043866b18d51ca28db, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -6.63
+      value: 4.37
       objectReference: {fileID: 0}
     - target: {fileID: 4236604060277552, guid: 9fd10f55e9501c043866b18d51ca28db, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 11
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 4236604060277552, guid: 9fd10f55e9501c043866b18d51ca28db, type: 2}
       propertyPath: m_LocalRotation.x
@@ -10736,7 +10736,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4738740723904644, guid: 51b1dee65a751944886c6d4df5602b6b, type: 2}
       propertyPath: m_LocalScale.x
-      value: 11.45
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4738740723904644, guid: 51b1dee65a751944886c6d4df5602b6b, type: 2}
       propertyPath: m_LocalScale.z
@@ -12551,6 +12551,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b5b482636c23f4ad2a5472e7f6adc55b, type: 2}
+    - target: {fileID: 1584426554565852, guid: e70d77352e2ec47498b5d8168ac723ed, type: 2}
+      propertyPath: m_TagString
+      value: Checkpoint7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e70d77352e2ec47498b5d8168ac723ed, type: 2}
   m_IsPrefabAsset: 0
